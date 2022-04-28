@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1> Strona w trakcie tworzenia</h1>
-    <?php
+   <?php
     echo(date("Y-m-d"));
     echo "<br>";
     echo(date("h:i:s"))
