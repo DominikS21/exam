@@ -14,8 +14,12 @@ foreach(range(1,20) as $x) {
   $data = date("Y-m-d h:i:s");
   $content = file_get_contents('https://picsum.photos/id/'.$losowa.'/info');
   $contentarray = json_decode($content); 
-  $conn->query("
-    INSERT INTO images (name, picsum_id, author, width, height, added_at) VALUES ('{$faker->name}', '$losowa', '{$contentarray->author}', '$contentarray->width', '$contentarray->height', '$data')
-    ");
+  $name = $faker->name;
+  $pattern = '/ /';
+  $replacement = '_';
+  $imagefile = preg_replace($pattern, $replacement, $name);
+#  $conn->query("
+ #   INSERT INTO images (name, picsum_id, imagefile author, width, height, added_at) VALUES ('$name', '$losowa', '$imagefile', '{$contentarray->author}', '$contentarray->width', '$contentarray->height', '$data')
+ #   ");
 }
 ?>
